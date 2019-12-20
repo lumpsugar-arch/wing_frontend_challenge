@@ -12,6 +12,7 @@ import AttInsurancePlanScreen from 'screens/InsurancePlan/att';
 import AttInsuranceScreen from 'screens/Insurance/att';
 
 export const Screen = ({ id, params }) => {
+  console.log(id);
   switch (id) {
     case 'HOME':
       return <Home />;

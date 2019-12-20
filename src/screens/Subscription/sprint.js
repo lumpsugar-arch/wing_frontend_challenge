@@ -5,8 +5,13 @@ import Link from 'common/Link';
 import * as routes from 'app/routes';
 import add_green_circle from 'common/img/add_green_circle.svg';
 import styles from './Subscription.module.css';
+import { fetchFiltered } from '../../insurance/insuranceContracts/api';
 
 export const SubscriptionScreen = ({ subId }) => {
+  fetchFiltered({subscription: subId}).then(res => {
+    console.log("hI", res.data);
+  });
+
   return (
     <div className="Subscription">
       <SubscriptionSwitcher sprintSubId={subId} sprintRoute={routes.sprintSubscription} attRoute={routes.attSubscription} />
@@ -20,6 +25,6 @@ export const SubscriptionScreen = ({ subId }) => {
       </div>
     </div>
   )
-}
+};
+export default SubscriptionScreen
 
-export default SubscriptionScreen;

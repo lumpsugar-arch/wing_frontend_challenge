@@ -4,6 +4,8 @@ import * as api from './api';
 
 import { findGenerator, getAllGenerator } from 'helpers/resourceSagas';
 
+console.log('INSURANCE_SAGA');
+
 export const find = findGenerator({
   resourceType: 'insurancePlans',
   endpoint: api.find
@@ -16,6 +18,7 @@ export const fetchValue = getAllGenerator({
 });
 
 export function* watchFind() {
+  console.log('WATCHFIND');
   yield takeEvery(types.FIND, find);
 }
 
