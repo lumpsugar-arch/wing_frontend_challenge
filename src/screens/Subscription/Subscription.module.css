@@ -14,3 +14,6 @@
   width: 2rem;
   margin-right: 1.5rem;
 }
+.hidden {
+  display: none;
+}
