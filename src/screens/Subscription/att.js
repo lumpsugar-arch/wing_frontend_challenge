@@ -14,6 +14,7 @@ import { getAttSubscription } from 'reducers';
 export const SubscriptionScreen = ({ subId, subscription }) => {
   const [showInsuranceLink, setShowInsuranceLink] = useState(false);
   const [showPlanLink, setShowPlanLink] = useState(false);
+  const [sku, setSku] = useState('');
 
   useEffect(() => {
     fetchFiltered({subscription: subId}).then(res => {
@@ -28,6 +29,8 @@ export const SubscriptionScreen = ({ subId, subscription }) => {
 
   useEffect(() => {
     if (!subscription) return;
+
+    setSku(subscription.device_specs);
 
     const subStatus = subscription.att_status || subscription.sprint_status;
 
@@ -56,7 +59,7 @@ export const SubscriptionScreen = ({ subId, subscription }) => {
         </Link>
         <Link
           className={cn(showPlanLink ? '' : styles.hidden)}
-          to={routes.attInsurancePlan(subId)}
+          to={routes.attInsurancePlan(subId, sku)}
         >
           <div className={styles.buttonChoose}>
             <Button>Choose insurance plan</Button>
