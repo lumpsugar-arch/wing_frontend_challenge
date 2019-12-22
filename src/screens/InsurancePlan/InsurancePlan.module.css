@@ -1,0 +1,112 @@
+.Plans {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 3rem;
+}
+
+.Card {
+  background: #ffffff;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  width: 90%;
+  order: 1;
+  padding: 3rem 0;
+}
+
+.Card:nth-child(3n) {
+  order: 3;
+}
+
+.Card:not(.CardMain) {
+  margin-top: 2rem;
+  padding-top: 1.4rem;
+}
+
+.CardMain {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
+  order: 2;
+  z-index: 10;
+  width: 100%;
+}
+
+.CardMain .CardName{
+  font-size: 2rem;
+  letter-spacing: normal;
+  margin-bottom: 2rem;
+}
+
+.CardMain .CardButton {
+  background: #1f6bef;
+  color: #ffffff;
+}
+
+.CardMain .CardHeader {
+  margin-bottom: 1.8rem;
+}
+
+/*.Plan + .Plan {*/
+/*  margin: 3rem;*/
+/*}*/
+
+.CardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: .05rem;
+  margin-bottom: 1.3rem;
+}
+
+.CardName {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.CardPrice {
+  text-align: center;
+  color: #787878;
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.CardPriceValue {
+  display: block;
+  font-weight: bold;
+  color: #1f6bef;
+  font-size: 1.8rem;
+}
+
+.CardButton {
+  font-size: 1.6rem;
+  padding: .5rem 4rem;
+  background: #ffffff;
+  border: .1rem solid #1f6bef;
+  color: #1f6bef;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.CardBody {
+  width: 100%;
+  background: #c5c9d4;
+  padding: 2rem;
+  font-size: 1.4rem;
+}
+
+.CardList {
+  list-style: none;
+  display: inline-block;
+  position: relative;
+  padding-left: .3rem;
+  padding-top: 1rem;
+}
+
+.CardList > li {
+  display: flex;
+  flex-direction: row;
+}
+
+.CardList img {
+  width: 1.2rem;
+  margin-right: .7rem;
+}
