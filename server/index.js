@@ -1,13 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const data = require('./data');
-const cors = require('cors')
+const cors = require('cors');
 const app = express();
 
 app.use(cors({credentials: true, origin: 'http://localhost:3030'}));
 app.use(bodyParser.json());
 
-app.get('/hey', (req, res) => res.send('ho!'))
+app.get('/hey', (req, res) => res.send('ho!'));
 
 app.get('/api/users/me/', (req, res) => res.send(data.user));
 

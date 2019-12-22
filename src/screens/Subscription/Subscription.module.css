@@ -17,3 +17,7 @@
 .hidden {
   display: none;
 }
+.buttonChoose {
+  text-align: center;
+  margin-top: 3rem;
+}
