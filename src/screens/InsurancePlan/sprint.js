@@ -56,7 +56,7 @@ const SprintInsurancePlan = (props) => {
                 <li><img src={checkmark} alt="checked"/>Broken screens</li>
               </ul>
             </div>
-            <div>
+            <div className={styles.CardFooter}>
               <ul>
                 <li>Repair deductible: ${plan.repair_deductible}</li>
                 <li>Replacement deductible: ${plan.replacement_deductible}</li>
