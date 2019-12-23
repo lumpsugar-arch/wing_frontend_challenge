@@ -7,6 +7,14 @@ import { setInsuranceContract as setAttContract } from 'subscriptions/att/action
 
 import { findGenerator, getAllGenerator, updateGenerator } from 'helpers/resourceSagas';
 
+export function* create({payload}) {
+  yield call(api.create, payload)
+}
+
+export function* activate({ payload }) {
+  yield call(api.activate, payload.id)
+}
+
 export const find = findGenerator({
   resourceType: 'insuranceContracts',
   endpoint: api.find
@@ -26,9 +34,19 @@ export function* watchFetchFiltered() {
   yield takeLatest(types.FETCH_FILTERED, fetchFiltered);
 }
 
+export function* watchCreate() {
+  yield takeEvery(types.CREATE, create);
+}
+
+export function* watchActivate() {
+  yield takeEvery(types.ACTIVATE, activate)
+}
+
 export function* watchInsuranceContracts() {
   yield all([
     call(watchFind),
     call(watchFetchFiltered),
+    call(watchCreate),
+    call(watchActivate)
   ]);
 }

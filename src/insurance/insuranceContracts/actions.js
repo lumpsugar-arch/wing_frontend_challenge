@@ -11,3 +11,13 @@ export const fetchFiltered = (params) => ({
   payload: { params },
 });
 
+export const create = (params) => ({
+  type: types.CREATE,
+  payload: params
+});
+
+export const activate = (id) => ({
+  type: types.ACTIVATE,
+  payload: { id }
+});
+

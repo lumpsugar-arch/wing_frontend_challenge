@@ -9,22 +9,19 @@ import checkmark from './checkmark.svg'
 import styles from './InsurancePlan.module.css';
 
 const SprintInsurancePlan = (props) => {
-  console.log('prprp', props);
   const [planList, setPlanList] = useState([]);
-  const { plans, fetchValue, params } = props;
+  const { plans, fetchValue, params, subId } = props;
 
   useEffect(() => {
     fetchValue('sprint')
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (plans) {
-      setPlanList(Object.values(plans))
-      console.log(plans);
+      setPlanList(Object.values(plans));
     }
   }, [plans]);
 
-  const {subId} = props
   return (
     <div>
       <div className={styles.Back}>
@@ -45,18 +42,18 @@ const SprintInsurancePlan = (props) => {
                 Starting at <span className={styles.CardPriceValue}>{`$${plan.price}`}</span>
               </div>
               <a className={styles.CardTermsLink} href="#">Terms, fees and more info</a>
-              <Link to={routes.attInsuranceConfirm(subId, params.sku, plan.id)}>
+              <Link to={routes.sprintInsuranceConfirm(subId, params.sku, plan.id)}>
                 <button className={styles.CardButton}>Select</button>
               </Link>
             </div>
             <div className={styles.CardBody}>
               Protects your device against
               <ul className={styles.CardList}>
-                <li><img src={checkmark} alt=""/>Accidental damage</li>
-                <li><img src={checkmark} alt=""/>Loss and theft</li>
-                <li><img src={checkmark} alt=""/>Malfunction</li>
-                <li><img src={checkmark} alt=""/>Water damage</li>
-                <li><img src={checkmark} alt=""/>Broken screens</li>
+                <li><img src={checkmark} alt="checked"/>Accidental damage</li>
+                <li><img src={checkmark} alt="checked"/>Loss and theft</li>
+                <li><img src={checkmark} alt="checked"/>Malfunction</li>
+                <li><img src={checkmark} alt="checked"/>Water damage</li>
+                <li><img src={checkmark} alt="checked"/>Broken screens</li>
               </ul>
             </div>
             <div>
@@ -72,8 +69,7 @@ const SprintInsurancePlan = (props) => {
   );
 }
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(state, ownProps);
+const mapStateToProps = (state) => {
   const plans = state.insurancePlans.resources;
   const params = state.routing.params;
   return { plans, params }

@@ -1,8 +1,8 @@
 import * as types from './types';
 
-export const createSprintPurchase = (subId, sku, planType) => ({
+export const createSprintPurchase = (params) => ({
   type: types.CREATE_SPRINT_PURCHASE,
-  payload: { subId, sku, planType }
+  payload: params
 });
 
 export const createAttPurchase = (subId, sku, planType) => ({
