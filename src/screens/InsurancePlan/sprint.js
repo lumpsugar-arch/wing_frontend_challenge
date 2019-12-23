@@ -22,6 +22,26 @@ const SprintInsurancePlan = (props) => {
     }
   }, [plans]);
 
+  const List = (id) => {
+    if (id.id === 10) {
+      return (
+        <ul className={styles.CardList}>
+          <li><img src={checkmark} alt="checked"/>Malfunction (after the original manufacturer's warranty expires)</li>
+        </ul>
+      )
+    } else {
+      return (
+        <ul className={styles.CardList}>
+          <li><img src={checkmark} alt="checked"/>Accidental damage</li>
+          <li><img src={checkmark} alt="checked"/>Loss and theft</li>
+          <li><img src={checkmark} alt="checked"/>Malfunction</li>
+          <li><img src={checkmark} alt="checked"/>Water damage</li>
+          <li><img src={checkmark} alt="checked"/>Broken screens</li>
+        </ul>
+      )
+    }
+  }
+
   return (
     <div>
       <div className={styles.Back}>
@@ -48,13 +68,7 @@ const SprintInsurancePlan = (props) => {
             </div>
             <div className={styles.CardBody}>
               Protects your device against
-              <ul className={styles.CardList}>
-                <li><img src={checkmark} alt="checked"/>Accidental damage</li>
-                <li><img src={checkmark} alt="checked"/>Loss and theft</li>
-                <li><img src={checkmark} alt="checked"/>Malfunction</li>
-                <li><img src={checkmark} alt="checked"/>Water damage</li>
-                <li><img src={checkmark} alt="checked"/>Broken screens</li>
-              </ul>
+              <List id={plan.id}/>
             </div>
             <div className={styles.CardFooter}>
               <ul>
