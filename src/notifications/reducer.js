@@ -27,7 +27,7 @@ const notifications = (state = initialState, action) => {
       const { [action.payload.key]: removedInfo, ...info } = state.info;
       return {
         ...state,
-        info
+        info: {}
       }
     case types.CLEAR_ERROR:
       const { [action.payload.key]: removedError, ...error } = state.error;

@@ -18,10 +18,10 @@ export const Info = ({ name, message }) => {
       </span>
     </div>
   );
-}
+};
 
 const mapStateToProps = (state, { name }) => ({
-  message: getInfo(state, name),
+  message: state.notifications.info[1]
 });
 
 export default connect(

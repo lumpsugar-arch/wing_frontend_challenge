@@ -5,7 +5,7 @@ export const createSprintPurchase = (params) => ({
   payload: params
 });
 
-export const createAttPurchase = (subId, sku, planType) => ({
+export const createAttPurchase = (params) => ({
   type: types.CREATE_ATT_PURCHASE,
-  payload: { subId, sku, planType }
+  payload: params
 });

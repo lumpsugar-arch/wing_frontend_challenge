@@ -19,24 +19,18 @@ export const SubscriptionScreen = (props) => {
   }, []);
 
   useEffect(() => {
-    if (!contracts) return;
-    if (contracts.length > 0) {
-      setShowInsuranceLink(false)
-    } else {
-      setShowInsuranceLink(true)
-    }
+    if (!contracts || !subscription) return;
 
-    if (!subscription) return;
     setSku(subscription.device_specs);
-
     const subStatus = subscription.att_status || subscription.sprint_status;
 
-    if (subStatus === 'active') {
+    if (contracts.length > 0) {
       setShowInsuranceLink(false)
-    } else {
+    } else if (subStatus === 'active') {
       setShowInsuranceLink(true)
     }
-  }, [contracts]);
+
+  }, [contracts, subscription]);
 
   return (
     <div className="Subscription">

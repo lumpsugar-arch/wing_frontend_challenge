@@ -8,26 +8,26 @@ import PlanInfo from 'insurance/insurancePlans/PlanInfo';
 import styles from '../../insurance/InsuranceInfo/InsuranceInfo.module.css';
 
 const InsuranceConfirm = (props) => {
-  const { insurancePlan, subId, sku, createSprintPurchase } = props;
+  const { insurancePlan, subId, sku, createPurchase, type } = props;
 
   useEffect(() => {
     props.find(props.plan);
-  }, [insurancePlan]);
+  }, [props.plan]);
 
   const onButtonClickHandler = useCallback(() => {
-    createSprintPurchase({
-      subscription: subId,
-      sku,
+    const subKey = type === 'sprint' ? 'subscription' : 'att_subscription';
+    createPurchase({
+      [subKey]: subId,
       contract: subId,
       device_specs: sku,
-      plan_type: 'sprint'
+      plan_type: type,
     })
   }, [props]);
 
   return (
     <div>
       <div>
-        <Back to={routes.sprintInsurancePlan(subId, sku)} />
+        <Back to={type === 'sprint' ? routes.sprintInsurancePlan(subId, sku) : routes.attInsurancePlan(subId, sku)} />
       </div>
 
       <h1>Confirm your plan selection</h1>

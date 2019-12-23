@@ -40,7 +40,7 @@ const SprintInsurancePlan = (props) => {
         </ul>
       )
     }
-  }
+  };
 
   return (
     <div>
